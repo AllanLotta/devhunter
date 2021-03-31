@@ -27,4 +27,9 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+  a {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+  }
 `;
