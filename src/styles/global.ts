@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { Colors } from './colors';
 
 export default createGlobalStyle`
   * {
@@ -9,14 +10,14 @@ export default createGlobalStyle`
   }
 
   body {
-    background-color: #FFF;
-    color: #000;
+    background-color: ${Colors.gray900};
+    color: ${Colors.white};
     -webkit-font-smoothing: antialiased;
   }
 
   body, input, button {
     font-family: 'SF Pro Display', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   h1, h2, h3, h4, h5, h6, strong {
