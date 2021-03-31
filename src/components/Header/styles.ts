@@ -53,6 +53,10 @@ export const Content = styled.div`
         background: ${Colors.yellow500};
       }
     }
+    .create-post-button {
+      position: absolute;
+      right: 100px;
+    }
   }
 
   @media (max-width: 768px) {
