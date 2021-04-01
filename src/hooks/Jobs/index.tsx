@@ -1,10 +1,11 @@
-import React, { createContext, useState, useContext, useCallback } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 import IJobsContext from './interface';
 
 const JobsContext = createContext<IJobsContext>({} as IJobsContext);
 
 const JobsProvider: React.FC = ({ children }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [jobs, setJobs] = useState([]);
 
   return (
