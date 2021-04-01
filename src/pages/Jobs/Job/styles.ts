@@ -10,21 +10,17 @@ export const Content = styled.div`
   max-width: 900px;
   padding-bottom: 50px;
   margin: 5rem auto 0;
+  line-height: 2rem;
+  padding: 2rem;
+  font-size: 1.125rem;
+  color: ${Colors.gray100};
+  border: 1px solid ${Colors.gray700};
+  border-radius: 5px;
 
-  div {
-    margin-top: 2rem;
-    line-height: 2rem;
-    padding: 2rem;
-    font-size: 1.125rem;
-    color: ${Colors.gray100};
-    border: 1px solid ${Colors.gray700};
-    border-radius: 5px;
-
-    span {
-      display: block;
-      font-size: 1rem;
-      color: ${Colors.gray300};
-      margin-top: 1.5rem;
-    }
+  span {
+    display: block;
+    font-size: 1rem;
+    color: ${Colors.gray300};
+    margin-top: 1.5rem;
   }
 `;
