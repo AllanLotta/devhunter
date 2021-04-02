@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Container, Content, SeeJobsButton } from './styles';
+import yeah from '../../assets/yeah.png';
 
 const Home: React.FC = () => {
   return (
@@ -9,12 +11,11 @@ const Home: React.FC = () => {
           Search online <span>millions of jobs</span> <br /> to find the next
           step in your career.
         </h1>
-        <SeeJobsButton>See Jobs</SeeJobsButton>
+        <Link to="/jobs">
+          <SeeJobsButton>See Jobs</SeeJobsButton>
+        </Link>
       </Content>
-      <img
-        src="https://d4zjpv0aa4kr2.cloudfront.net/assets/home/man-yellow-shirt-b77f31c40fff206cf3d8ed7feb6855cd7cf8d84fca30313a6cf2e679f4657796.png"
-        alt="Girl coding"
-      />
+      <img src={yeah} alt="yeah" />
     </Container>
   );
 };

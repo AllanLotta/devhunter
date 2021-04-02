@@ -35,7 +35,7 @@ export const Content = styled.div`
     }
   }
 
-  > button {
+  button {
     margin-top: 2.5rem;
   }
 
