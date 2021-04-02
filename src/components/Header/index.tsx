@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Content } from './styles';
+import logo from '../../assets/logo.png';
 
 const Header: React.FC = () => {
   return (
     <Container>
       <Content>
-        <img
-          src="https://blog.geekhunter.com.br/wp-content/uploads/2018/04/marca_geekhunter_colorida.png"
-          width="100"
-          alt="job.news"
-        />
+        <Link to="/">
+          <img src={logo} width="100" alt="devhunter" />
+        </Link>
         <nav>
           <Link to="/">Home</Link>
           <Link to="/Jobs">Jobs</Link>
