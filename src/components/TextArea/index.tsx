@@ -59,7 +59,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         defaultValue={defaultValue}
         ref={TextAreaRef}
         cols={30}
-        rows={30}
+        rows={15}
         {...rest}
       />
 
