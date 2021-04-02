@@ -5,6 +5,7 @@ export const Container = styled.div`
   max-width: 1120px;
   margin: 0 auto;
   padding: 0 2rem;
+  margin-bottom: 2rem;
 `;
 export const Content = styled.div`
   max-width: 900px;
@@ -23,10 +24,6 @@ export const Content = styled.div`
     font-weight: 600;
     color: ${Colors.gray300};
     margin-top: 1.5rem;
-  }
-
-  h1 {
-    margin-bottom: 20px;
   }
 
   button {
@@ -51,6 +48,40 @@ export const Content = styled.div`
 
     &:hover {
       filter: brightness(0.8);
+    }
+  }
+`;
+
+export const SelectContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .react-select__menu-list {
+    background-color: ${Colors.gray800};
+  }
+
+  @media (max-width: 768px) {
+    display: inline;
+  }
+`;
+
+export const SalaryContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  div {
+    & + div {
+      margin-left: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: inline;
+    div {
+      & + div {
+        margin-left: 0px;
+      }
     }
   }
 `;
