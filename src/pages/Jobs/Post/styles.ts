@@ -20,7 +20,37 @@ export const Content = styled.div`
   span {
     display: block;
     font-size: 1rem;
+    font-weight: 600;
     color: ${Colors.gray300};
     margin-top: 1.5rem;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 5px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+
+    border: 0;
+    border-radius: 2rem;
+
+    background: ${Colors.yellow500};
+    color: ${Colors.gray900};
+
+    font-size: 1.1rem;
+    font-weight: bold;
+
+    transition: filter 0.2s;
+
+    &:hover {
+      filter: brightness(0.8);
+    }
   }
 `;
