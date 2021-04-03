@@ -14,7 +14,7 @@ const JobCard: React.FC<IJobCardProps> = ({ job }) => {
       <span>
         ${formatNumber(job.salary_min)} - ${formatNumber(job.salary_max)}
       </span>
-      <Link to={`/Job/${job.title}`}>
+      <Link to={`/Job/${job.id}`}>
         <button type="button">See more</button>
       </Link>
     </Container>

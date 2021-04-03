@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Colors } from '../../styles/colors';
 
 import Tooltip from '../Tooltip';
 
@@ -13,7 +14,7 @@ export const Container = styled.div<ContainerProps>`
   border-radius: 10px;
   padding: 16px;
   border: 2px solid #232129;
-  color: #666360;
+  color: ${Colors.gray600};
   display: flex;
   align-items: center;
   & + div {
@@ -22,26 +23,26 @@ export const Container = styled.div<ContainerProps>`
   ${(props) =>
     props.isErrored &&
     css`
-      border-color: #c53030;
+      border-color: ${Colors.red600};
     `}
   ${(props) =>
     props.isFocused &&
     css`
-      color: #ff9000;
-      border-color: #ff9000;
+      color: ${Colors.yellow500};
+      border-color: ${Colors.yellow500};
     `}
   ${(props) =>
     props.isFilled &&
     css`
-      color: #ff9000;
+      color: ${Colors.yellow500};
     `}
   input {
     flex: 1;
     background: transparent;
     border: 0;
-    color: #f4ede8;
+    color: ${Colors.gray100};
     &::placeholder {
-      color: #666360;
+      color: ${Colors.gray600};
     }
   }
 `;
