@@ -83,13 +83,13 @@
     {
       "id": 2,
       "title": "Front End Developer",
-      "company_id": 2,
-      "description": "looking for professionals who want to be part of our continued journey onward and upward. Currently, we are looking for a Fullstack Web Developer to work fully remote. As Developer at More, you work both independently and in a team of very talented and ambitious colleagues. We appreciate a solution-driven and quality-conscious mindset. We have several clients (e.g. Supercell, a major international mobile game development company) and parallel projects, and you need to be able to switch between them and support other projects that need your attention.",
-      "role": "Frontend",
-      "type": "Full-time",
+      "role": "backend",
+      "type": "Part-Time",
       "level": "Mid-Level",
-      "salary_min": 80000,
-      "salary_max": 120000
+      "salary_min": "81000",
+      "salary_max": "120009",
+      "company_id": 3,
+      "description": "looking for professionals who want to be part of our continued journey onward and upward. Currently, we are looking for a Fullstack Web Developer to work fully remote. As Developer at More, you work both independently and in a team of very talented and ambitious colleagues. We appreciate a solution-driven and quality-conscious mindset. We have several clients (e.g. Supercell, a major international mobile game development company) and parallel projects, and you need to be able to switch between them and support other projects that need your attention."
     },
     {
       "id": 4,
@@ -101,6 +101,28 @@
       "level": "Lead",
       "salary_min": 100000,
       "salary_max": 185000
+    },
+    {
+      "title": "blablabla",
+      "role": "frontend",
+      "type": "Full-Time",
+      "level": "Junior",
+      "salary_min": "70000",
+      "salary_max": "120000",
+      "description": "this is a description",
+      "id": 5774639701839772,
+      "company_id": 1
+    },
+    {
+      "title": "afdsfasfasfafasfsa",
+      "role": "frontend",
+      "type": "Full-Time",
+      "level": "Junior",
+      "salary_min": "12312312313",
+      "salary_max": "123124535",
+      "company_id": 2,
+      "description": "asdadasdasdasdasdasdadas",
+      "id": 5774639701839773
     }
   ]
 }
