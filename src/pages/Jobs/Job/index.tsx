@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useJobs } from '../../../hooks/Jobs';
+import { IJob } from '../../../hooks/Jobs/interfaces';
 import { formatNumber } from '../../../utils/formatNumber';
-import { IJob } from '../interfaces';
 
 import { Container, Content, ActionsContainer } from './styles';
 
@@ -46,9 +46,11 @@ const Job: React.FC = () => {
           </span>
         </div>
         <ActionsContainer>
-          <button className="edit-button" type="button">
-            Edit
-          </button>
+          <Link to={`/Edit/${id}`}>
+            <button className="edit-button" type="button">
+              Edit
+            </button>
+          </Link>
           <button
             onClick={() => handleDelete()}
             className="delete-button"

@@ -50,15 +50,15 @@ export const Content = styled.div`
       filter: brightness(0.8);
     }
   }
+  .react-select__menu-list {
+    background-color: ${Colors.gray800};
+  }
 `;
 
 export const SelectContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .react-select__menu-list {
-    background-color: ${Colors.gray800};
-  }
 
   @media (max-width: 768px) {
     display: inline;

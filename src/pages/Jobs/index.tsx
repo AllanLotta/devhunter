@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import JobCard from '../../components/JobCard';
 import { useJobs } from '../../hooks/Jobs';
-import { IJob } from './interfaces';
+import { IJob } from '../../hooks/Jobs/interfaces';
 
 import { Container, Content } from './styles';
 
