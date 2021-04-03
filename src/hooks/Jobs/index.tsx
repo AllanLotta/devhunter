@@ -1,11 +1,5 @@
 import axios from 'axios';
-import React, {
-  createContext,
-  useState,
-  useContext,
-  useCallback,
-  useEffect,
-} from 'react';
+import React, { createContext, useContext, useCallback } from 'react';
 import { IJob } from '../../pages/Jobs/interfaces';
 import { baseURL } from '../../services/api';
 import IJobsContextData from './interface';
@@ -13,23 +7,23 @@ import IJobsContextData from './interface';
 const JobsContext = createContext<IJobsContextData>({} as IJobsContextData);
 
 const JobsProvider: React.FC = ({ children }) => {
-  const [jobs, setJobs] = useState<IJob[]>([] as IJob[]);
-
-  useEffect(() => {
-    const loadJobs = async (): Promise<void> => {
+  const getJobsList = useCallback(async (): Promise<IJob[]> => {
+    try {
       const response = await axios.get(`${baseURL}/jobs`);
-      setJobs(response.data);
-    };
-    loadJobs();
+
+      return response.data;
+    } catch (error) {
+      return [] as IJob[];
+    }
   }, []);
 
-  const getJobById = useCallback(async (id: number): Promise<IJob | null> => {
+  const getJobById = useCallback(async (id: number): Promise<IJob> => {
     try {
       const response = await axios.get(`${baseURL}/jobs/${id}`);
 
       return response.data;
     } catch (error) {
-      return null;
+      return {} as IJob;
     }
   }, []);
 
@@ -68,7 +62,7 @@ const JobsProvider: React.FC = ({ children }) => {
   const deleteJob = useCallback(async (id: number): Promise<boolean> => {
     try {
       const response = await axios.delete(`${baseURL}/jobs/${id}`);
-      if (response.data.id) {
+      if (response.data) {
         return true;
       }
       return false;
@@ -80,7 +74,7 @@ const JobsProvider: React.FC = ({ children }) => {
   return (
     <JobsContext.Provider
       value={{
-        jobs,
+        getJobsList,
         getJobById,
         postJob,
         editJob,
