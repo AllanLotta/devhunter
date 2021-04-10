@@ -82,35 +82,35 @@
   "jobs": [
     {
       "id": 2,
-      "title": "Front End Developer 01",
+      "title": "Front End Developer",
       "salary_min": "81000",
       "salary_max": "120009",
       "description": "looking for professionals who want to be part of our continued journey onward and upward. Currently, we are looking for a Fullstack Web Developer to work fully remote. As Developer at More, you work both independently and in a team of very talented and ambitious colleagues. We appreciate a solution-driven and quality-conscious mindset. We have several clients (e.g. Supercell, a major international mobile game development company) and parallel projects, and you need to be able to switch between them and support other projects that need your attention.",
-      "role": "Fullstack",
-      "type": "Part-Time",
-      "level": "Lead",
-      "company_id": 3
+      "role": "Backend",
+      "type": "Full-Time",
+      "level": "Mid-Level",
+      "company_id": 5
     },
     {
       "id": 4,
       "title": "Front End Developer",
+      "salary_min": "100000",
+      "salary_max": "185000",
+      "description": "looking for professionals who want to be part of our continued journey onward and upward. Currently, we are looking for a Fullstack Web Developer to work fully remote. As Developer at More, you work both independently and in a team of very talented and ambitious colleagues. We appreciate a solution-driven and quality-conscious mindset. We have several clients (e.g. Supercell, a major international mobile game development company) and parallel projects, and you need to be able to switch between them and support other projects that need your attention.",
       "role": "Backend",
       "type": "Part-Time",
       "level": "Mid-Level",
-      "salary_min": "100000",
-      "salary_max": "185000",
-      "company_id": 2,
-      "description": "looking for professionals who want to be part of our continued journey onward and upward. Currently, we are looking for a Fullstack Web Developer to work fully remote. As Developer at More, you work both independently and in a team of very talented and ambitious colleagues. We appreciate a solution-driven and quality-conscious mindset. We have several clients (e.g. Supercell, a major international mobile game development company) and parallel projects, and you need to be able to switch between them and support other projects that need your attention."
+      "company_id": 5
     },
     {
+      "id": 5774639701839772,
       "title": "blablabla",
-      "role": "Frontend",
-      "type": "Full-Time",
-      "level": "Junior",
       "salary_min": "70000",
       "salary_max": "120000",
       "description": "this is a description",
-      "id": 5774639701839772,
+      "role": "Frontend",
+      "type": "Full-Time",
+      "level": "Senior",
       "company_id": 1
     },
     {
