@@ -10,7 +10,7 @@ import { useField } from '@unform/core';
 
 import { Container, Error } from './styles';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   containerStyle?: object;
 }
