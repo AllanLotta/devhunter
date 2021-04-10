@@ -5,7 +5,6 @@ import { Form } from '@unform/web';
 import * as Yup from 'yup';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { isTemplateMiddle } from 'typescript';
 import Input from '../../../components/Input';
 
 import { Container, Content, SalaryContainer, SelectContainer } from './styles';
@@ -91,7 +90,7 @@ const EditJob: React.FC = () => {
       });
 
       const params: IJob = {
-        id: job?.id || 0,
+        id: parseInt(id, 10),
         ...data,
       };
 
@@ -109,6 +108,20 @@ const EditJob: React.FC = () => {
     }
   }, []);
 
+  const setDefaultValueCompanySelect = useCallback(() => {
+    if (companies && job) {
+      const result = companies.filter((item) => item.id === job.company_id);
+      if (result.length > 0) {
+        return {
+          value: result[0].id,
+          label: result[0].company,
+        };
+      }
+      return null;
+    }
+    return null;
+  }, [job, companies]);
+
   return (
     <Container>
       <Content>
@@ -116,11 +129,31 @@ const EditJob: React.FC = () => {
         <Form ref={formRef} onSubmit={handleSubmit}>
           <span>Job Title</span>
           <Input name="title" defaultValue={job?.title} placeholder="Title" />
-          <SelectContainer>
-            <Select name="role" placeholder="Select Role" options={roles} />
-            <Select name="type" placeholder="Select Type" options={types} />
-            <Select name="level" placeholder="Select Level" options={levels} />
-          </SelectContainer>
+          {job && (
+            <SelectContainer>
+              <Select
+                defaultValue={{ value: job?.role, label: job?.role }}
+                name="role"
+                hideSelectedOptions
+                placeholder="Select Role"
+                options={roles}
+              />
+              <Select
+                defaultValue={{ value: job?.type, label: job?.type }}
+                name="type"
+                hideSelectedOptions
+                placeholder="Select Type"
+                options={types}
+              />
+              <Select
+                defaultValue={{ value: job?.level, label: job?.level }}
+                name="level"
+                hideSelectedOptions
+                placeholder="Select Level"
+                options={levels}
+              />
+            </SelectContainer>
+          )}
           <SalaryContainer>
             <div>
               <span>Minimum payment</span>
@@ -141,12 +174,18 @@ const EditJob: React.FC = () => {
               />
             </div>
           </SalaryContainer>
-          <span>Company</span>
-          <Select
-            name="company_id"
-            placeholder="Select Company"
-            options={selectCompanyData}
-          />
+          {job && companies && (
+            <>
+              <span>Company</span>
+              <Select
+                defaultValue={setDefaultValueCompanySelect()}
+                hideSelectedOptions
+                name="company_id"
+                placeholder="Select Company"
+                options={selectCompanyData}
+              />
+            </>
+          )}
           <span>Description</span>
           <TextArea
             defaultValue={job?.description}
