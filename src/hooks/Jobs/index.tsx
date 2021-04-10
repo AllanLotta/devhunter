@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { createContext, useContext, useCallback } from 'react';
-import IJobsContextData, { IJob, PostFormData } from './interfaces';
+import IJobsContextData, { IJob } from './interfaces';
 import { baseURL } from '../../services/api';
 
 const JobsContext = createContext<IJobsContextData>({} as IJobsContextData);
