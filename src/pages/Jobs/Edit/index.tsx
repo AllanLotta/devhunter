@@ -13,7 +13,6 @@ import getValidationErrors from '../../../utils/getValidationErrors';
 import TextArea from '../../../components/TextArea';
 import { Select } from '../../../components/Select';
 import { levels, roles, types } from '../../../utils/const';
-import { useCompany } from '../../../hooks/Company';
 import { ICompany } from '../../../hooks/Company/interfaces';
 import { ReactSelectItens } from '../interfaces';
 import { IState } from '../../../store';
@@ -36,7 +35,6 @@ const EditJob: React.FC = () => {
 
   const { id } = useParams<Params>();
   const [job, setJob] = useState<IJob>();
-  const { getCompanyList } = useCompany();
   const [companies, setCompanies] = useState<ICompany[]>();
   const [selectCompanyData, setSelectCompanyData] = useState<
     ReactSelectItens[]
@@ -49,8 +47,8 @@ const EditJob: React.FC = () => {
       setJob(jobData.data);
     };
     const loadCompanies = async () => {
-      const companiesData = await getCompanyList();
-      setCompanies(companiesData);
+      const response = await api.get('companies');
+      setCompanies(response.data);
     };
     loadJobData();
     loadCompanies();

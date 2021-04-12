@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import ReactSelect from 'react-select';
 import JobCard from '../../components/JobCard';
-import { useCompany } from '../../hooks/Company';
 import { ICompany } from '../../hooks/Company/interfaces';
 import api from '../../services/api';
 import { IJob } from '../../store/modules/jobs/types';
@@ -17,7 +16,6 @@ const Jobs: React.FC = () => {
   );
 
   const [showFilter, setShowFilter] = useState<boolean>(false);
-  const { getCompanyList } = useCompany();
 
   useEffect(() => {
     const loadJobs = async () => {
@@ -41,8 +39,8 @@ const Jobs: React.FC = () => {
 
   useEffect(() => {
     const loadCompanies = async () => {
-      const companiesData = await getCompanyList();
-      setCompanies(companiesData);
+      const response = await api.get('companies');
+      setCompanies(response.data);
     };
     loadCompanies();
   }, []);

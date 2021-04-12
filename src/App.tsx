@@ -5,17 +5,14 @@ import store from './store';
 import Header from './components/Header';
 
 import Routes from './routes';
-import AppProvider from './hooks';
 import GlobalStyles from './styles/global';
 
 const App: React.FC = () => (
   <Router>
-    <AppProvider>
-      <Provider store={store}>
-        <Header />
-        <Routes />
-      </Provider>
-    </AppProvider>
+    <Provider store={store}>
+      <Header />
+      <Routes />
+    </Provider>
     <GlobalStyles />
   </Router>
 );

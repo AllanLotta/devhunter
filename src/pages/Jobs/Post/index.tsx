@@ -13,7 +13,6 @@ import getValidationErrors from '../../../utils/getValidationErrors';
 import TextArea from '../../../components/TextArea';
 import { Select } from '../../../components/Select';
 import { levels, roles, types } from '../../../utils/const';
-import { useCompany } from '../../../hooks/Company';
 import { ICompany } from '../../../hooks/Company/interfaces';
 import { ReactSelectItens } from '../interfaces';
 import {
@@ -22,13 +21,13 @@ import {
 } from '../../../store/modules/jobs/actions';
 import { IState } from '../../../store';
 import { IJob, PostFormData } from '../../../store/modules/jobs/types';
+import api from '../../../services/api';
 
 const PostJob: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
   const dispatch = useDispatch();
   const { alert } = useSelector((state: IState) => state.jobs);
-  const { getCompanyList } = useCompany();
   const [companies, setCompanies] = useState<ICompany[]>();
   const [selectCompanyData, setSelectCompanyData] = useState<
     ReactSelectItens[]
@@ -36,8 +35,8 @@ const PostJob: React.FC = () => {
 
   useEffect(() => {
     const loadCompanies = async () => {
-      const companiesData = await getCompanyList();
-      setCompanies(companiesData);
+      const response = await api.get('companies');
+      setCompanies(response.data);
     };
     loadCompanies();
   }, []);
