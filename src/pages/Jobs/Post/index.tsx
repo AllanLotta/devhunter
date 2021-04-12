@@ -4,6 +4,7 @@ import { Form } from '@unform/web';
 
 import * as Yup from 'yup';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Input from '../../../components/Input';
 
@@ -12,25 +13,26 @@ import getValidationErrors from '../../../utils/getValidationErrors';
 import TextArea from '../../../components/TextArea';
 import { Select } from '../../../components/Select';
 import { levels, roles, types } from '../../../utils/const';
-import { useJobs } from '../../../hooks/Jobs';
-import { IJob, PostFormData } from '../../../hooks/Jobs/interfaces';
 import { useCompany } from '../../../hooks/Company';
 import { ICompany } from '../../../hooks/Company/interfaces';
-
-interface SelectData {
-  value: number;
-  label: string;
-}
+import { ReactSelectItens } from '../interfaces';
+import {
+  clearAlert,
+  postJobRequest,
+} from '../../../store/modules/jobs/actions';
+import { IState } from '../../../store';
+import { IJob, PostFormData } from '../../../store/modules/jobs/types';
 
 const PostJob: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
-  const { postJob } = useJobs();
+  const dispatch = useDispatch();
+  const { alert } = useSelector((state: IState) => state.jobs);
   const { getCompanyList } = useCompany();
   const [companies, setCompanies] = useState<ICompany[]>();
-  const [selectCompanyData, setSelectCompanyData] = useState<SelectData[]>(
-    [] as SelectData[],
-  );
+  const [selectCompanyData, setSelectCompanyData] = useState<
+    ReactSelectItens[]
+  >([] as ReactSelectItens[]);
 
   useEffect(() => {
     const loadCompanies = async () => {
@@ -41,9 +43,16 @@ const PostJob: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    if (alert?.type === 'success') {
+      history.push('/jobs');
+      dispatch(clearAlert());
+    }
+  }, [alert]);
+
+  useEffect(() => {
     if (companies && companies?.length > 0) {
-      const loadCompanySelectData = () => {
-        const selectDataTemp: SelectData[] = [];
+      const loadCompanyReactSelectItens = () => {
+        const selectDataTemp: ReactSelectItens[] = [];
         companies.map((company) => {
           selectDataTemp.push({
             value: company.id,
@@ -52,7 +61,7 @@ const PostJob: React.FC = () => {
         });
         setSelectCompanyData(selectDataTemp);
       };
-      loadCompanySelectData();
+      loadCompanyReactSelectItens();
     }
   }, [companies]);
 
@@ -64,7 +73,7 @@ const PostJob: React.FC = () => {
       const schema = Yup.object().shape({
         title: Yup.string().required('Field required'),
         description: Yup.string().required('Field required'),
-        company_id: Yup.number(),
+        company_id: Yup.string(),
         role: Yup.string(),
         type: Yup.string(),
         level: Yup.string(),
@@ -78,14 +87,10 @@ const PostJob: React.FC = () => {
 
       const params: IJob = {
         ...data,
-        id: parseInt(Math.random().toString(36), 10),
+        id: Math.random().toString(36),
       };
 
-      const didPosted = await postJob(params);
-
-      if (didPosted) {
-        history.push('/jobs');
-      }
+      dispatch(postJobRequest(params));
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);

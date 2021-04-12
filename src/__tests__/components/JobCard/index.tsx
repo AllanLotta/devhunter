@@ -8,9 +8,9 @@ import { IJobCardProps } from '../../../components/JobCard/interfaces';
 describe('JobCard Component', () => {
   const mockJobCardProps: IJobCardProps = {
     job: {
-      id: 2,
+      id: '2',
       title: 'Teste',
-      company_id: 0,
+      company_id: '0',
       description: 'Teste Description',
       role: 'Front test',
       type: '',

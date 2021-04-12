@@ -1,7 +1,7 @@
 {
   "companies": [
     {
-      "id": 1,
+      "id": "1",
       "company": "Flipkart.com",
       "logo": "https://www.searchpng.com/wp-content/uploads/2019/01/Flipart-Logo-Icon-PNG-Image.png",
       "description": "Flipkart is an e-commerce company founded in 2007 by Sachin Bansal and Binny Bansal. It is a Singaporean company which operates in India, where it is headquartered in Bangalore, Karnataka.",
@@ -14,7 +14,7 @@
       "ratings": 5
     },
     {
-      "id": 2,
+      "id": "2",
       "company": "Amazon.com",
       "logo": "https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/62c36898c1fccfb889efeb7ccefb50b7",
       "description": "Amazon is guided by four principles: customer obsession rather than competitor focus, passion for invention, commitment to operational excellence, and long-term thinking. We are driven by the excitement of building technologies, inventing products, and providing services that change lives. We embrace new ways of doing things, make decisions quickly, and are not afraid to fail. We have the scope and capabilities of a large company, and the spirit and heart of a small one.",
@@ -27,7 +27,7 @@
       "ratings": 5
     },
     {
-      "id": 3,
+      "id": "3",
       "company": "HDFB Bank",
       "logo": "https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/c1e88bb71d075bbc247a2dd8ffeb4b75",
       "description": "HDFC Bank Limited is a major Indian financial services company based in India, incorporated in August 1994, after the Reserve Bank of India allowed establishing private sector banks. The Bank was promoted by the Housing Development Finance Corporation, a premier housing finance company (set up in 1977) of India. HDFC Bank has 1,725 branches and over 5,000 ATMs, in 780 cities in India, and all branches of the bank are linked on an online real-time basis. As of 30 September 2008 the bank had total assets of Rs.1006.82 billion. For the fiscal year 2010-11, the bank has reported net profit of 3,926.30 crore (US$875.56 million), up 33.1% from the previous fiscal. Total annual earnings of the bank increased by 20.37% reaching at 24,263.4 crore (US$5.41 billion) in 2010-11.",
@@ -40,7 +40,7 @@
       "ratings": 4
     },
     {
-      "id": 4,
+      "id": "4",
       "company": "Tech Mahindra",
       "logo": "https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/bc446d4f68e46da84af03344401f5204",
       "description": "We are part of the USD 17.8 billion Mahindra Group that employs more than 200,000 people in over 100 countries. The Group operates in the key industries that drive economic growth, enjoying a leadership position in tractors, utility vehicles, after-market, information technology and vacation ownership.",
@@ -53,7 +53,7 @@
       "ratings": 3
     },
     {
-      "id": 5,
+      "id": "5",
       "company": "Exide Life Insurance",
       "logo": "https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/5b1cc718817a0c41ff859eff5498e7e3",
       "description": "Exide Life Insurance Company Limited, an established and profitable life insurance company, commenced operations in 2001-02 and is head quartered in Bengaluru. The company is 100% owned by Exide Industries Limited. The company serves over 15 lakh customers and manages assets of over INR 11000 Crores. During the financial year 2016-17, the company achieved Total Premium Income of over INR 2,400 crores and delivered INR 112 crores in Profits (PBT).",
@@ -66,7 +66,7 @@
       "ratings": 3
     },
     {
-      "id": 6,
+      "id": "6",
       "company": "Rapido Bike Taxi",
       "logo": "https://d2q79iu7y748jz.cloudfront.net/s/_squarelogo/0490a22d5a135d1c85d7988390535b3b",
       "description": "Rapido is an Indian online bike taxi aggregator and logistics service provider based out of Bangalore, India. Founded in 2015, the company operates in over 75 cities across the country, but has run into legal troubles in several places.",
@@ -81,48 +81,48 @@
   ],
   "jobs": [
     {
-      "id": 2,
-      "title": "Front End Developer",
-      "salary_min": "81000",
-      "salary_max": "120009",
-      "description": "looking for professionals who want to be part of our continued journey onward and upward. Currently, we are looking for a Fullstack Web Developer to work fully remote. As Developer at More, you work both independently and in a team of very talented and ambitious colleagues. We appreciate a solution-driven and quality-conscious mindset. We have several clients (e.g. Supercell, a major international mobile game development company) and parallel projects, and you need to be able to switch between them and support other projects that need your attention.",
-      "role": "Backend",
+      "id": "0.mosw1bix23",
+      "title": "asdasdas",
+      "salary_min": "3424234234",
+      "salary_max": "23423423424",
+      "description": "adasdasdasda",
+      "role": "Fullstack",
       "type": "Full-Time",
-      "level": "Mid-Level",
-      "company_id": 5
+      "level": "Junior",
+      "company_id": "4"
     },
     {
-      "id": 4,
-      "title": "Front End Developer",
-      "salary_min": "100000",
-      "salary_max": "185000",
-      "description": "looking for professionals who want to be part of our continued journey onward and upward. Currently, we are looking for a Fullstack Web Developer to work fully remote. As Developer at More, you work both independently and in a team of very talented and ambitious colleagues. We appreciate a solution-driven and quality-conscious mindset. We have several clients (e.g. Supercell, a major international mobile game development company) and parallel projects, and you need to be able to switch between them and support other projects that need your attention.",
-      "role": "Backend",
-      "type": "Part-Time",
-      "level": "Mid-Level",
-      "company_id": 5
-    },
-    {
-      "id": 5774639701839772,
-      "title": "blablabla",
-      "salary_min": "70000",
-      "salary_max": "120000",
-      "description": "this is a description",
-      "role": "Frontend",
+      "title": "asdasdas45554",
+      "role": "Fullstack",
       "type": "Full-Time",
-      "level": "Senior",
-      "company_id": 1
+      "level": "Junior",
+      "salary_min": "3424234234",
+      "salary_max": "23423423424",
+      "company_id": "4",
+      "description": "adasdasdasdadfsfsf",
+      "id": "0.um638x2zzz"
     },
     {
-      "title": "afdsfasfasfafasfsa",
+      "title": "sadasd",
       "role": "Frontend",
       "type": "Full-Time",
       "level": "Junior",
-      "salary_min": "12312312313",
-      "salary_max": "123124535",
-      "company_id": 2,
-      "description": "asdadasdasdasdasdasdadas",
-      "id": 5774639701839773
+      "salary_min": "342424",
+      "salary_max": "234234234",
+      "company_id": "3",
+      "description": "weqweqweqweqe",
+      "id": "0.yrhenkf6aij"
+    },
+    {
+      "id": "0.z8737nba0hg",
+      "title": "asdasdasdasd",
+      "salary_min": "123123123",
+      "salary_max": "1231321",
+      "description": "asasdasdasdasdaas",
+      "role": "Fullstack",
+      "type": "Part-Time",
+      "level": "Mid-Level",
+      "company_id": "4"
     }
   ]
 }

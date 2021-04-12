@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { createContext, useContext, useCallback } from 'react';
 import ICompanyContextData, { ICompany } from './interfaces';
 import { baseURL } from '../../services/api';
-import { IJob } from '../Jobs/interfaces';
+import { IJob } from '../../store/modules/jobs/types';
 
 const CompanyContext = createContext<ICompanyContextData>(
   {} as ICompanyContextData,

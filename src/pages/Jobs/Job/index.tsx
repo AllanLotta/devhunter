@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link, useHistory } from 'react-router-dom';
-import { useJobs } from '../../../hooks/Jobs';
-import { IJob } from '../../../hooks/Jobs/interfaces';
+import api from '../../../services/api';
+import { IState } from '../../../store';
+import {
+  clearAlert,
+  deleteJobRequest,
+} from '../../../store/modules/jobs/actions';
+import { IJob } from '../../../store/modules/jobs/types';
 import { formatNumber } from '../../../utils/formatNumber';
 
 import { Container, Content, ActionsContainer } from './styles';
@@ -13,25 +19,30 @@ interface Params {
 
 const Job: React.FC = () => {
   const { id } = useParams<Params>();
+  const dispatch = useDispatch();
+  const { alert } = useSelector((state: IState) => state.jobs);
+
   const [job, setJob] = useState<IJob>({} as IJob);
   const history = useHistory();
-  const { getJobById, deleteJob } = useJobs();
+
+  useEffect(() => {
+    if (alert?.type === 'success') {
+      history.push('/jobs');
+      dispatch(clearAlert());
+    }
+  }, [alert]);
 
   useEffect(() => {
     const getJobData = async () => {
-      const jobId = parseInt(id, 10);
-      const jobData = await getJobById(jobId);
-      setJob(jobData);
+      const jobData = await api(`jobs/${id}`);
+      setJob(jobData.data);
     };
 
     getJobData();
   }, [id]);
 
   const handleDelete = async () => {
-    const isDeleted = await deleteJob(job.id);
-    if (isDeleted) {
-      history.push('/jobs');
-    }
+    dispatch(deleteJobRequest(job.id));
   };
 
   return (

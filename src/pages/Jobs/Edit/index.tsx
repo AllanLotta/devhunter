@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
+import { useDispatch, useSelector } from 'react-redux';
 
 import * as Yup from 'yup';
 import { useHistory, useParams } from 'react-router-dom';
@@ -12,15 +13,16 @@ import getValidationErrors from '../../../utils/getValidationErrors';
 import TextArea from '../../../components/TextArea';
 import { Select } from '../../../components/Select';
 import { levels, roles, types } from '../../../utils/const';
-import { useJobs } from '../../../hooks/Jobs';
-import { IJob, PostFormData } from '../../../hooks/Jobs/interfaces';
 import { useCompany } from '../../../hooks/Company';
 import { ICompany } from '../../../hooks/Company/interfaces';
-
-interface SelectData {
-  value: number;
-  label: string;
-}
+import { ReactSelectItens } from '../interfaces';
+import { IState } from '../../../store';
+import {
+  clearAlert,
+  editJobRequest,
+} from '../../../store/modules/jobs/actions';
+import { IJob, PostFormData } from '../../../store/modules/jobs/types';
+import api from '../../../services/api';
 
 interface Params {
   id: string;
@@ -29,21 +31,22 @@ interface Params {
 const EditJob: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { alert } = useSelector((state: IState) => state.jobs);
+
   const { id } = useParams<Params>();
   const [job, setJob] = useState<IJob>();
-  const { editJob, getJobById } = useJobs();
   const { getCompanyList } = useCompany();
   const [companies, setCompanies] = useState<ICompany[]>();
-  const [selectCompanyData, setSelectCompanyData] = useState<SelectData[]>(
-    [] as SelectData[],
-  );
+  const [selectCompanyData, setSelectCompanyData] = useState<
+    ReactSelectItens[]
+  >([] as ReactSelectItens[]);
 
   useEffect(() => {
     const loadJobData = async () => {
-      const jobId = parseInt(id, 10);
-      const jobData = await getJobById(jobId);
+      const jobData = await api(`jobs/${id}`);
       console.log(jobData);
-      setJob(jobData);
+      setJob(jobData.data);
     };
     const loadCompanies = async () => {
       const companiesData = await getCompanyList();
@@ -56,7 +59,7 @@ const EditJob: React.FC = () => {
   useEffect(() => {
     if (companies && companies?.length > 0) {
       const loadCompanySelectData = () => {
-        const selectDataTemp: SelectData[] = [];
+        const selectDataTemp: ReactSelectItens[] = [];
         companies.map((company) => {
           selectDataTemp.push({
             value: company.id,
@@ -69,6 +72,13 @@ const EditJob: React.FC = () => {
     }
   }, [companies]);
 
+  useEffect(() => {
+    if (alert?.type === 'success') {
+      history.push('/jobs');
+      dispatch(clearAlert());
+    }
+  }, [alert]);
+
   const handleSubmit = useCallback(async (data: PostFormData) => {
     try {
       console.log(data);
@@ -77,7 +87,7 @@ const EditJob: React.FC = () => {
       const schema = Yup.object().shape({
         title: Yup.string().required('Field required'),
         description: Yup.string().required('Field required'),
-        company_id: Yup.number(),
+        company_id: Yup.string(),
         role: Yup.string(),
         type: Yup.string(),
         level: Yup.string(),
@@ -90,15 +100,11 @@ const EditJob: React.FC = () => {
       });
 
       const params: IJob = {
-        id: parseInt(id, 10),
+        id,
         ...data,
       };
 
-      const didPosted = await editJob(params);
-
-      if (didPosted) {
-        history.push('/jobs');
-      }
+      dispatch(editJobRequest(params));
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = getValidationErrors(err);

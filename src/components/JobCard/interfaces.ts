@@ -1,4 +1,4 @@
-import { IJob } from '../../hooks/Jobs/interfaces';
+import { IJob } from '../../store/modules/jobs/types';
 
 export interface IJobCardProps {
   job: IJob;

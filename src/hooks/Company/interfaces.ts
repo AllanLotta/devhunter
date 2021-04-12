@@ -1,7 +1,7 @@
-import { IJob } from '../Jobs/interfaces';
+import { IJob } from '../../store/modules/jobs/types';
 
 export interface ICompany {
-  id: number;
+  id: string;
   company: string;
   logo: string;
   description: string;
