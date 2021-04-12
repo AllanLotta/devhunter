@@ -35,12 +35,4 @@ describe('JobCard Component', () => {
     expect(wrapper.find('span').at(1).text()).toEqual('$0.1k - $0.2k');
     expect(wrapper.find(Link).prop('to')).toEqual('/Job/2');
   });
-
-  it('should render job card with details', () => {
-    const wrapper = shallow(<JobCard {...mockJobCardProps} />);
-
-    wrapper.find('button').simulate('click');
-
-    expect(window.location).toEqual('d');
-  });
 });
